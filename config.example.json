@@ -1,0 +1,55 @@
+{
+  "token": "BOT_TOKEN",
+  "database": {
+    "uri": "MONGO_URI"
+  },
+  "guilds": {
+    "devGuildID": "DEV_GUILD_ID",
+    "prodGuildID": "PROD_GUILD_ID"
+  },
+  "categories": {
+    "tickets": "TICKETS_CATEGORY_ID"
+  },
+  "channels": {
+    "logsID": "LOGS_CHANNEL_ID",
+    "memberCountID": "MEMBER_COUNT_CHANNEL_ID",
+    "moderation": "MODERATION_LOGS_CHANNEL_ID",
+    "levels": "LEVELS_CHANNEL_ID",
+  },
+  "roles" : {
+    "ccpp": "CCPP_ROLE_ID",
+    "cs": "CS_ROLE_ID",
+    "dart": "DART_ROLE_ID",
+    "go": "GO_ROLE_ID",
+    "java": "JAVA_ROLE_ID",
+    "js": "JS_ROLE_ID",
+    "kotlin": "KOTLIN_ROLE_ID",
+    "php": "PHP_ROLE_ID",
+    "py": "PY_ROLE_ID",
+    "ts": "TS_ROLE_ID",
+    "web": "WEB_ROLE_ID",
+    "annonces": "ANNONCES_ROLE_ID",
+    "status": "STATUS_ROLE_ID",
+    "dev": "DEV_NOTIFICATIONS_ROLE_ID",
+    "partner": "PARTNER_NOTIFICATIONS_ROLE_ID",
+    "member": "MEMBER_ROLE_ID",
+    "team": "TEAM_STAFF_ROLE_ID"
+  },
+  "emojis": {
+    "ccpp": "<:cpp:993921402740670585>",
+    "cs": "<:cs:993921404338700338>",
+    "dart": "<:dart:993921779892498603>",
+    "go": "<:golang:993921406960140388>",
+    "java": "<:java:993921409308954655>",
+    "js": "<:javascript:993921410546282630>",
+    "kotlin": "<:kotlin:993921411880079440>",
+    "php": "<:php:993921412928651394>",
+    "py": "<:python:993921414178558023>",
+    "ts": "<:typescript:994711829861376061>",
+    "web": "<:html:993921408100995133>",
+    "annonces": "\uD83D\uDCE2",
+    "status": "📊",
+    "dev": "\uD83D\uDCBB",
+    "partner": "✨"
+  }
+}
