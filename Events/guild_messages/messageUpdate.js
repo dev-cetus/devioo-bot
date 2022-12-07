@@ -1,6 +1,6 @@
-const {MessageEmbed} = require("discord.js");
-const {warn} = require("../../Utils/Logger");
-const {create} = require('sourcebin')
+const { MessageEmbed } = require("discord.js");
+const { warn } = require("../../Utils/Logger");
+const { create } = require('sourcebin')
 const modChannel = require('../../config.json').channels.moderation;
 const prodGuild = require('../../config.json').guilds.prodGuildID;
 
@@ -41,7 +41,10 @@ module.exports = {
                     description: `Message modifié par ${newMessage.author.tag} (${newMessage.author.id})`,
                 }
             ).catch(() => {
-                return newMessage.reply({content: '**❌ | Une erreur est survenue durant la sauvegarde du ticket.**', ephemeral: true});
+                return newMessage.reply({
+                    content: '**❌ | Une erreur est survenue durant la sauvegarde du ticket.**',
+                    ephemeral: true
+                });
             })
         } else if (oldMessage.content.length === 0) {
             oldMsgContent = '<empty>';
@@ -67,7 +70,10 @@ module.exports = {
                     description: `Message modifié par ${newMessage.author.tag} (${newMessage.author.id})`,
                 }
             ).catch(() => {
-                return newMessage.reply({content: '**❌ | Une erreur est survenue durant la sauvegarde du ticket.**', ephemeral: true});
+                return newMessage.reply({
+                    content: '**❌ | Une erreur est survenue durant la sauvegarde du ticket.**',
+                    ephemeral: true
+                });
             })
         } else if (newMessage.content.length === 0) {
             newMsgContent = '<empty>';
@@ -79,37 +85,37 @@ module.exports = {
             .setColor('#ea800c')
             .setTitle('Un message a été modifié')
             .addFields(
-                {name: '👤 Auteur', value: `<@${newMessage.author.id}> (\`${newMessage.author.id}\`)`},
-                {name: '📃 Ancien message', value: oldMsgContent, inline: true},
-                {name: '📃 Nouveau message', value: newMsgContent, inline: true},
-                {name: '🗓️ Envoyé le', value: `<t:${parseInt(oldMessage.createdAt/1000)}:f>`},
-                {name: '🗓️ Modifié le', value: `<t:${parseInt(Date.now()/1000)}:f>`},
-                {name: '📍 Salon', value: `<#${newMessage.channel.id}>`},
-                {name: '🔗 Lien', value: `[Sauter vers le message](${newMessage.url})`, inline: true}
+                { name: '👤 Auteur', value: `<@${newMessage.author.id}> (\`${newMessage.author.id}\`)` },
+                { name: '📃 Ancien message', value: oldMsgContent, inline: true },
+                { name: '📃 Nouveau message', value: newMsgContent, inline: true },
+                { name: '🗓️ Envoyé le', value: `<t:${parseInt(oldMessage.createdAt / 1000)}:f>` },
+                { name: '🗓️ Modifié le', value: `<t:${parseInt(Date.now() / 1000)}:f>` },
+                { name: '📍 Salon', value: `<#${newMessage.channel.id}>` },
+                { name: '🔗 Lien', value: `[Sauter vers le message](${newMessage.url})`, inline: true }
             )
             .setTimestamp()
-            .setThumbnail(newMessage.author.displayAvatarURL({dynamic: true}))
+            .setThumbnail(newMessage.author.displayAvatarURL({ dynamic: true }))
             .setFooter({
                 text: `ID du message : ${newMessage.id}`,
-                iconURL: newMessage.author.displayAvatarURL({dynamic: true})
+                iconURL: newMessage.author.displayAvatarURL({ dynamic: true })
             })
 
-            if (binOld) {
-                embed.addField('📄 Ancien message', `[Voir au complet](${binOld.url})`);
-            }
+        if (binOld) {
+            embed.addField('📄 Ancien message', `[Voir au complet](${binOld.url})`);
+        }
 
-            if (binNew) {
-                embed.addField('📄 Nouveau message', `[Voir au complet](${binNew.url})`);
-            }
+        if (binNew) {
+            embed.addField('📄 Nouveau message', `[Voir au complet](${binNew.url})`);
+        }
 
-            if (oldMessage.attachments.size === 1) {
-                embed.addField('📎 Pièce jointe', `[${oldMessage.attachments.first().name}](${oldMessage.attachments.first().url})`);
-                embed.setImage(oldMessage.attachments.first().url);
-            } else if (oldMessage.attachments.size > 1) {
-                embed.addField('📎 Pièces jointes', `${oldMessage.attachments.map(attachment => `[${attachment.name}](${attachment.url})`).join('\n')}`);
-            }
+        if (oldMessage.attachments.size === 1) {
+            embed.addField('📎 Pièce jointe', `[${oldMessage.attachments.first().name}](${oldMessage.attachments.first().url})`);
+            embed.setImage(oldMessage.attachments.first().url);
+        } else if (oldMessage.attachments.size > 1) {
+            embed.addField('📎 Pièces jointes', `${oldMessage.attachments.map(attachment => `[${attachment.name}](${attachment.url})`).join('\n')}`);
+        }
 
-        client.guilds.cache.get(newMessage.guild.id).channels.cache.get(modChannel).send({embeds: [embed]})
+        client.guilds.cache.get(newMessage.guild.id).channels.cache.get(modChannel).send({ embeds: [ embed ] })
 
     },
 };

@@ -1,5 +1,5 @@
 const { User } = require('../../Models/index');
-const {MessageEmbed} = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const modChannel = require('../../config.json').channels.moderation;
 const { info } = require('../../Utils/Logger')
 const { automod } = require('../../Utils/AutoModerator');
@@ -47,7 +47,8 @@ module.exports = {
                 }
             }, { upsert: true });
 
-            client.guilds.cache.get(message.guild.id).channels.cache.get(modChannel).send({ embeds: [
+            client.guilds.cache.get(message.guild.id).channels.cache.get(modChannel).send({
+                embeds: [
                     new MessageEmbed()
                         .setColor('#d33a3a')
                         .setTitle('Auto-modérateur')
@@ -57,14 +58,16 @@ module.exports = {
                         .setTimestamp()
                         .setFooter({
                             text: 'Auto-modérateur',
-                            iconURL: client.user.displayAvatarURL({dynamic: true})
+                            iconURL: client.user.displayAvatarURL({ dynamic: true })
                         })
-                ]})
+                ]
+            })
 
             await automod(client, message)
 
 
-            message.member.send({ content: `${message.author.username},\nVotre message dans le serveur ${message.guild.name} a été automatiquement sanctionné pour contenu inapproprié.`,
+            message.member.send({
+                content: `${message.author.username},\nVotre message dans le serveur ${message.guild.name} a été automatiquement sanctionné pour contenu inapproprié.`,
             }).catch(() => {
                 info(`${message.author.username} (${message.author.id}) a été automatiquement sanctionné pour contenu inapproprié, mais il n'accepte pas les messages privés.`)
             })

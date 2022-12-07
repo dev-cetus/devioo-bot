@@ -27,7 +27,6 @@ const languages = new MessageActionRow()
             .setLabel('Golang')
             .setEmoji(emojis.go)
             .setStyle('SECONDARY'),
-
     )
 
 const languages2 = new MessageActionRow()
@@ -76,7 +75,6 @@ const languages3 = new MessageActionRow()
             .setLabel('Web')
             .setEmoji(emojis.web)
             .setStyle('SECONDARY'),
-
     )
 
 const notifs = new MessageActionRow()
@@ -110,7 +108,7 @@ const notifs = new MessageActionRow()
 module.exports = {
     name: 'roles',
     category: 'Admin',
-    permissions: ['ADMINISTRATOR'],
+    permissions: [ 'ADMINISTRATOR' ],
     description: 'Affiche les boutons pour s\'ajouter ou se retirer des rôles.',
     usage: 'roles',
     async runInteraction(client, interaction) {
@@ -140,12 +138,12 @@ module.exports = {
                     .setColor('#0099ff')
                     .setFooter({
                         text: interaction.guild.name,
-                        iconURL: interaction.guild.iconURL({dynamic: true})
+                        iconURL: interaction.guild.iconURL({ dynamic: true })
                     })
                     .setTimestamp()
-                    .setThumbnail(interaction.guild.iconURL({dynamic: true}))
-            ], components: [languages, languages2, languages3, notifs]
+                    .setThumbnail(interaction.guild.iconURL({ dynamic: true }))
+            ], components: [ languages, languages2, languages3, notifs ]
         })
-        await interaction.reply({content: '**✅ | L\'embed a été envoyé avec succès.**', ephemeral: true})
+        await interaction.reply({ content: '**✅ | L\'embed a été envoyé avec succès.**', ephemeral: true })
     }
 }

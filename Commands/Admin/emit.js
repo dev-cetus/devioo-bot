@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
     name: 'emit',
     category: 'Admin',
-    permissions: ['ADMINISTRATOR'],
+    permissions: [ 'ADMINISTRATOR' ],
     description: 'Emettre un évenement.',
     usage: 'emit [event]',
     options: [
@@ -29,16 +29,18 @@ module.exports = {
 
         if (evtChoicies === 'guildMemberAdd') {
             client.emit('guildMemberAdd', interaction.member);
-            interaction.reply({content: 'L\'évenement a été émit', ephemeral: true});
+            interaction.reply({ content: 'L\'évenement a été émit', ephemeral: true });
         } else if (evtChoicies === 'guildMemberRemove') {
             client.emit('guildMemberRemove', interaction.member);
-            interaction.reply({content: 'L\'évenement a été émit', ephemeral: true});
+            interaction.reply({ content: 'L\'évenement a été émit', ephemeral: true });
         } else {
-            interaction.reply({ embeds: [new MessageEmbed()
-                .setColor('#ef5353')
-                .setTitle('Erreur')
-                .setDescription('L\'évenement n\'existe pas')
-            ]});
+            interaction.reply({
+                embeds: [ new MessageEmbed()
+                    .setColor('#ef5353')
+                    .setTitle('Erreur')
+                    .setDescription('L\'évenement n\'existe pas')
+                ]
+            });
         }
     }
 }

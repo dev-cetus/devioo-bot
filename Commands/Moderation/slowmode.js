@@ -1,7 +1,7 @@
 module.exports = {
     name: 'slowmode',
     category: 'Moderation',
-    permissions: ['MANAGE_MESSAGES'],
+    permissions: [ 'MANAGE_MESSAGES' ],
     description: 'Permet d\'activer ou de désactiver le mode lent.',
     usage: 'slowmode [temps]',
     options: [

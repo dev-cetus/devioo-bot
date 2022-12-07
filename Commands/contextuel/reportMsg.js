@@ -1,12 +1,12 @@
-const {MessageEmbed} = require("discord.js");
-const {User} = require("../../Models");
+const { MessageEmbed } = require("discord.js");
+const { User } = require("../../Models");
 const modChannel = require('../../config.json').channels.moderation;
 const prodGuild = require('../../config.json').guilds.prodGuildID;
 
 module.exports = {
     name: 'Signaler ce message',
     category: 'contextuel',
-    permissions: ['READ_MESSAGE_HISTORY'],
+    permissions: [ 'READ_MESSAGE_HISTORY' ],
     type: 'MESSAGE',
     async runInteraction(client, interaction) {
         if (interaction.guild.id !== prodGuild) {
@@ -14,7 +14,10 @@ module.exports = {
         }
 
         if (interaction.user.id === interaction.targetMessage.author.id) {
-            return interaction.reply({ content: '**❌ | Vous ne pouvez pas signaler votre propre message !**', ephemeral: true });
+            return interaction.reply({
+                content: '**❌ | Vous ne pouvez pas signaler votre propre message !**',
+                ephemeral: true
+            });
         }
 
         let messageContent = interaction.targetMessage.content;
@@ -38,10 +41,10 @@ module.exports = {
             .addField('ID du serveur', `\`${interaction.guild.id}\``)
             .addField('Lien vers le message', `[Lien](${interaction.targetMessage.url})`)
             .setTimestamp()
-            .setThumbnail(interaction.targetMessage.author.displayAvatarURL({ dynamic: true}))
+            .setThumbnail(interaction.targetMessage.author.displayAvatarURL({ dynamic: true }))
             .setFooter({
                 text: 'Signalement de message',
-                iconURL: client.user.displayAvatarURL({dynamic: true})
+                iconURL: client.user.displayAvatarURL({ dynamic: true })
             })
 
         if (interaction.targetMessage.attachments.size > 0) {
@@ -49,9 +52,12 @@ module.exports = {
             embed.setImage(interaction.targetMessage.attachments.first().url);
         }
 
-        client.guilds.cache.get(interaction.guild.id).channels.cache.get(modChannel).send({ embeds: [embed] });
+        client.guilds.cache.get(interaction.guild.id).channels.cache.get(modChannel).send({ embeds: [ embed ] });
 
-        interaction.reply({ content: '**✅ | Votre signalement a bien été envoyé à l\'équipe de modération, nous vous remercions.**', ephemeral: true });
+        interaction.reply({
+            content: '**✅ | Votre signalement a bien été envoyé à l\'équipe de modération, nous vous remercions.**',
+            ephemeral: true
+        });
 
         if (interaction.targetMessage.content.length > 150) {
             messageContent = interaction.targetMessage.content.substring(0, 150) + "...";
@@ -64,13 +70,13 @@ module.exports = {
                 reportScore: 1
             },
             $push: {
-                msgReports: [{
+                msgReports: [ {
                     msgID: interaction.targetMessage.id,
                     channelID: interaction.channelId,
                     authorID: interaction.user.id,
                     msg: messageContent,
                     date: Date.now(),
-                }]
+                } ]
             }
         }, { upsert: true });
     }

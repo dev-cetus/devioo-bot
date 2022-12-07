@@ -1,13 +1,13 @@
 const { Badwords } = require('../../Models/index')
 const { warn } = require('../../Utils/Logger')
-const {MessageEmbed} = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const logChannel = require('../../config.json').channels.logsID
 const prodGuild = require('../../config.json').guilds.prodGuildID
 
 module.exports = {
     name: 'badwords',
     category: 'Admin',
-    permissions: ['ADMINISTRATOR'],
+    permissions: [ 'ADMINISTRATOR' ],
     description: 'Permet de gérer les mots interdits',
     usage: 'badwords [add|remove|edit|list] [mot] [sévérité]',
     options: [
@@ -82,12 +82,15 @@ module.exports = {
 
         word.toLowerCase()
 
-        switch(interaction.options.getSubcommand()) {
+        switch (interaction.options.getSubcommand()) {
             case 'add':
                 const severity = interaction.options.getNumber('sévérité');
 
-                if (severity <  1 || severity > 10) {
-                    interaction.reply({content:'**❌ | La sévérité doit être comprise entre 1 et 10**', ephemeral: true})
+                if (severity < 1 || severity > 10) {
+                    interaction.reply({
+                        content: '**❌ | La sévérité doit être comprise entre 1 et 10**',
+                        ephemeral: true
+                    })
                 }
 
                 Badwords.findOneAndUpdate({
@@ -98,15 +101,19 @@ module.exports = {
                 }, {
                     upsert: true,
                 }, (err) => {
-                    if(err) {
-                        interaction.reply({content: '**❌ | Une erreur est survenue**', ephemeral: true});
+                    if (err) {
+                        interaction.reply({ content: '**❌ | Une erreur est survenue**', ephemeral: true });
                         warn(`\t${err}`)
                     } else {
-                        interaction.reply({content: `**✅ | Le mot \`${word}\` a été ajouté avec la sévérité \`${severity}\`**\nN'oubliez pas de faire \`/reload\` pour mettre à jour les mot interdits.`, ephemeral: true});
+                        interaction.reply({
+                            content: `**✅ | Le mot \`${word}\` a été ajouté avec la sévérité \`${severity}\`**\nN'oubliez pas de faire \`/reload\` pour mettre à jour les mot interdits.`,
+                            ephemeral: true
+                        });
                     }
                 });
 
-                client.guilds.cache.get(interaction.guild.id).channels.cache.get(logChannel).send({embeds: [
+                client.guilds.cache.get(interaction.guild.id).channels.cache.get(logChannel).send({
+                    embeds: [
                         new MessageEmbed()
                             .setTitle('Ajout d\'un mot interdit')
                             .setColor('#40ca53')
@@ -125,15 +132,19 @@ module.exports = {
                 Badwords.findOneAndDelete({
                     word: word
                 }, (err) => {
-                    if(err) {
-                        interaction.reply({content: '**❌ | Une erreur est survenue**', ephemeral: true});
+                    if (err) {
+                        interaction.reply({ content: '**❌ | Une erreur est survenue**', ephemeral: true });
                         warn(`\t${err}`)
                     } else {
-                        interaction.reply({content: `**✅ | Le mot \`${word}\` a été supprimé**\nN'oubliez pas de faire \`/reload\` pour mettre à jour les mot interdits.`, ephemeral: true});
+                        interaction.reply({
+                            content: `**✅ | Le mot \`${word}\` a été supprimé**\nN'oubliez pas de faire \`/reload\` pour mettre à jour les mot interdits.`,
+                            ephemeral: true
+                        });
                     }
                 });
 
-                client.guilds.cache.get(interaction.guild.id).channels.cache.get(logChannel).send({embeds: [
+                client.guilds.cache.get(interaction.guild.id).channels.cache.get(logChannel).send({
+                    embeds: [
                         new MessageEmbed()
                             .setTitle('Suppression d\'un mot interdit')
                             .setColor('#ca4040')
@@ -157,15 +168,19 @@ module.exports = {
                 }, {
                     upsert: true,
                 }, (err) => {
-                    if(err) {
-                        interaction.reply({content: '**❌ | Une erreur est survenue**', ephemeral: true});
+                    if (err) {
+                        interaction.reply({ content: '**❌ | Une erreur est survenue**', ephemeral: true });
                         warn(`\t${err}`)
                     } else {
-                        interaction.reply({content: `**✅ | Le mot \`${word}\` a été édité avec la sévérité \`${severityEdit}\`**\nN'oubliez pas de faire \`/reload\` pour mettre à jour les mot interdits.`, ephemeral: true});
+                        interaction.reply({
+                            content: `**✅ | Le mot \`${word}\` a été édité avec la sévérité \`${severityEdit}\`**\nN'oubliez pas de faire \`/reload\` pour mettre à jour les mot interdits.`,
+                            ephemeral: true
+                        });
                     }
                 });
 
-                client.guilds.cache.get(interaction.guild.id).channels.cache.get(logChannel).send({embeds: [
+                client.guilds.cache.get(interaction.guild.id).channels.cache.get(logChannel).send({
+                    embeds: [
                         new MessageEmbed()
                             .setTitle('Edition d\'un mot interdit')
                             .setColor('#1698d0')
@@ -197,7 +212,7 @@ module.exports = {
                 str = str.substring(0, str.length - 2);
                 embed.setDescription(`**Mots:** ${str}`);
 
-                interaction.reply({ embeds: [embed] });
+                interaction.reply({ embeds: [ embed ] });
 
                 break;
         }

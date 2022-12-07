@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
     name: 'untimeout',
     category: 'Moderation',
-    permissions: ['MODERATE_MEMBERS'],
+    permissions: [ 'MODERATE_MEMBERS' ],
     description: 'Retire le timeout d\'un utilisateur',
     usage: 'untimeout [@username]',
     options: [
@@ -17,7 +17,8 @@ module.exports = {
     async runInteraction(client, interaction) {
         const target = interaction.options.getMember("user");
 
-        if (!target.isCommunicationDisabled()) return interaction.reply({embeds: [
+        if (!target.isCommunicationDisabled()) return interaction.reply({
+            embeds: [
                 new MessageEmbed()
                     .setColor('#d84141')
                     .setTitle('Erreur')
@@ -25,13 +26,15 @@ module.exports = {
                     .setTimestamp()
                     .setFooter({
                         text: interaction.user.tag,
-                        iconURL: interaction.user.displayAvatarURL({dynamic: true})
+                        iconURL: interaction.user.displayAvatarURL({ dynamic: true })
                     })
-            ], ephemeral: true});
+            ], ephemeral: true
+        });
 
         target.timeout(null);
 
-        await interaction.reply({ embeds: [
+        await interaction.reply({
+            embeds: [
                 new MessageEmbed()
                     .setColor('#6fe153')
                     .setTitle('🗣️ Timeout retiré')
@@ -40,12 +43,13 @@ module.exports = {
                         { name: '👮 Modérateur', value: `<@${interaction.user.id}>`, inline: true },
                     )
                     .setTimestamp()
-                    .setThumbnail(target.user.displayAvatarURL({dynamic: true}))
+                    .setThumbnail(target.user.displayAvatarURL({ dynamic: true }))
                     .setFooter({
                         text: interaction.user.tag,
-                        iconURL: interaction.user.displayAvatarURL({dynamic: true})
+                        iconURL: interaction.user.displayAvatarURL({ dynamic: true })
                     })
-            ]})
+            ]
+        })
 
     }
 }

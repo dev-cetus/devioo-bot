@@ -4,15 +4,19 @@
     For : DEVIOO server
  */
 const { Client, Collection } = require('discord.js');
-const client = new Client({ intents: 66055, partials: ['MESSAGE', 'CHANNEL'] });
+const client = new Client({ intents: 66055, partials: [ 'MESSAGE', 'CHANNEL' ] });
 const Logger = require('./Utils/Logger');
 const config = require('./config.json');
 const mongoose = require('mongoose');
 
-['commands', 'buttons', 'selects', 'badwords'].forEach(x => client[x] = new Collection());
-['CommandUtil', 'EventUtil', 'ButtonUtil', 'SelectUtil', 'BadwordsUtil'].forEach(handler => { require(`./Utils/Handlers/${handler}`)(client) });
+[ 'commands', 'buttons', 'selects', 'badwords' ].forEach(x => client[x] = new Collection());
+[ 'CommandUtil', 'EventUtil', 'ButtonUtil', 'SelectUtil', 'BadwordsUtil' ].forEach(handler => {
+    require(`./Utils/Handlers/${handler}`)(client)
+});
 
-process.on('exit', code => { Logger.client(`Exiting with code ${code}`) });
+process.on('exit', code => {
+    Logger.client(`Exiting with code ${code}`)
+});
 process.on('uncaughtException', async (err, origin) => {
     Logger.error(`\tUNCAUGHT_EXCEPTION: ${err}`)
     await console.log(origin)
@@ -21,7 +25,9 @@ process.on('unhandledRejection', async (reason, promise) => {
     Logger.warn(`\tUNHANDLED_REJECTION: ${reason}`)
     await console.log(promise)
 });
-process.on('warning', (...args) => { Logger.warn(...args) });
+process.on('warning', (...args) => {
+    Logger.warn(...args)
+});
 
 // Connect to MongoDB
 mongoose.connect(config.database.uri, {
