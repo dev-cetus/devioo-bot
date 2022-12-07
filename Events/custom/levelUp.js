@@ -5,8 +5,6 @@ module.exports = {
     name: 'levelUp',
     once: false,
     execute(client, user) {
-        let userId = user.id;
-
-        client.channels.cache.get(levelChannel).send({ content: `<@!${userId}> viens de passer au niveau ${user.level}` })
+        client.channels.cache.get(levelChannel).send({ content: `**${user.username}** viens de passer au niveau ${user.level}` })
     }
 }

@@ -43,7 +43,7 @@ class Level {
             client.emit('levelUp', user);
         }
 
-        user.save()
+        await user.save()
     }
 
     async getLeaderboard() {
@@ -64,6 +64,7 @@ class Level {
 
             await user.save()
         }
+
         return user
     }
 }
