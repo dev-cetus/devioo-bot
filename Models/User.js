@@ -10,7 +10,7 @@ const userSchema = mongoose.Schema({
         required: true
     },
     reports: {
-        type: [Number]
+        type: [ Number ]
     },
     msgReports: [
         {

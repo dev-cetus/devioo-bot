@@ -1,5 +1,5 @@
 const prodGuild = require('../../config.json').guilds.prodGuildID
-const {MessageEmbed} = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const logChannel = require('../../config.json').channels.logsID
 
 module.exports = {
@@ -15,14 +15,14 @@ module.exports = {
                         .setColor('#da8d2a')
                         .setTitle('Le nom du serveur a été changé')
                         .addFields(
-                            {name: '📜 Ancien nom', value: `\`${oldGuild.name}\``},
-                            {name: '📃 Nouveau nom', value: `\`${newGuild.name}\``}
+                            { name: '📜 Ancien nom', value: `\`${oldGuild.name}\`` },
+                            { name: '📃 Nouveau nom', value: `\`${newGuild.name}\`` }
                         )
                         .setTimestamp()
-                        .setThumbnail(newGuild.iconURL({dynamic: true}))
+                        .setThumbnail(newGuild.iconURL({ dynamic: true }))
                         .setFooter({
                             text: `ID du serveur: ${newGuild.id}`,
-                            iconURL: newGuild.iconURL({dynamic: true})
+                            iconURL: newGuild.iconURL({ dynamic: true })
                         })
                 ]
             })
@@ -45,10 +45,10 @@ module.exports = {
                             }
                         )
                         .setTimestamp()
-                        .setThumbnail(newGuild.iconURL({dynamic: true}))
+                        .setThumbnail(newGuild.iconURL({ dynamic: true }))
                         .setFooter({
                             text: `ID du serveur: ${newGuild.id}`,
-                            iconURL: newGuild.iconURL({dynamic: true})
+                            iconURL: newGuild.iconURL({ dynamic: true })
                         })
                 ]
             })
@@ -60,12 +60,12 @@ module.exports = {
                         .setColor('#da8d2a')
                         .setTitle('L\'icône du serveur a été changée')
                         .setDescription(`Nouvel icon à droite\nAncien icon ci-dessous`)
-                        .setImage(oldGuild.iconURL({dynamic: true}))
+                        .setImage(oldGuild.iconURL({ dynamic: true }))
                         .setTimestamp()
-                        .setThumbnail(newGuild.iconURL({dynamic: true}))
+                        .setThumbnail(newGuild.iconURL({ dynamic: true }))
                         .setFooter({
                             text: `ID du serveur: ${newGuild.id}`,
-                            iconURL: newGuild.iconURL({dynamic: true})
+                            iconURL: newGuild.iconURL({ dynamic: true })
                         })
                 ]
             })
@@ -89,10 +89,10 @@ module.exports = {
                             }
                         )
                         .setTimestamp()
-                        .setThumbnail(newGuild.iconURL({dynamic: true}))
+                        .setThumbnail(newGuild.iconURL({ dynamic: true }))
                         .setFooter({
                             text: `ID du serveur: ${newGuild.id}`,
-                            iconURL: newGuild.iconURL({dynamic: true})
+                            iconURL: newGuild.iconURL({ dynamic: true })
                         })
                 ]
             })

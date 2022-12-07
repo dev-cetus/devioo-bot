@@ -3,7 +3,7 @@ const { info } = require('../../Utils/Logger');
 module.exports = {
     name: 'reload',
     category: 'Admin',
-    permissions: ['MANAGE_MESSAGES'],
+    permissions: [ 'MANAGE_MESSAGES' ],
     description: 'Permet recharger le bot',
     usage: 'reload',
     /*options: [

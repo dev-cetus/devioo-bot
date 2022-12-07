@@ -1,5 +1,12 @@
 {
-  "watch": ["**/*.js", "**/*.json"],
+  "watch": [
+    "**/*.js",
+    "**/*.json"
+  ],
   "exec": "node .",
-    "ignore": ["node_modules", "**/*.test.js", "**/*.spec.js"]
+  "ignore": [
+    "node_modules",
+    "**/*.test.js",
+    "**/*.spec.js"
+  ]
 }

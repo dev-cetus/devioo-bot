@@ -1,5 +1,5 @@
-const {User} = require('../Models')
-const {info} = require("./Logger");
+const { User } = require('../Models')
+const { info } = require("./Logger");
 const client = require('../index');
 
 module.exports = {

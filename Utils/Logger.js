@@ -48,7 +48,7 @@ function write(content, tagColor, bgTagColor, tag, error = false) {
     const logTag = `[${tag}]`;
     const stream = error ? process.stderr : process.stdout;
 
-    const item =  format
+    const item = format
         .replace('{tstamp}', chalk.gray(timestamp))
         .replace('{tag}', chalk[bgTagColor][tagColor](logTag))
         .replace('{txt}', chalk.white(content));

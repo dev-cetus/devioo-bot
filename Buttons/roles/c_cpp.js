@@ -1,4 +1,4 @@
-const {MessageEmbed} = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const roleName = "ccpp";
 const role = require('../../config.json').roles[roleName];
 
@@ -18,7 +18,7 @@ module.exports = {
                         .setTimestamp()
                         .setFooter({
                             text: interaction.guild.name,
-                            iconURL: interaction.guild.iconURL({dynamic: true})
+                            iconURL: interaction.guild.iconURL({ dynamic: true })
                         })
                 ], ephemeral: true
             });
@@ -33,7 +33,7 @@ module.exports = {
                         .setTimestamp()
                         .setFooter({
                             text: interaction.guild.name,
-                            iconURL: interaction.guild.iconURL({dynamic: true})
+                            iconURL: interaction.guild.iconURL({ dynamic: true })
                         })
                 ], ephemeral: true
             });
