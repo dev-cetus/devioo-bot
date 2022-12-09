@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const { info } = require('../../Utils/Logger');
-const modChannel = require('../../config.json').channels.moderation;
+require('../../config.json').channels.moderation;
 
 module.exports = {
     name: 'ban',

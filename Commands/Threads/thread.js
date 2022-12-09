@@ -34,7 +34,7 @@ module.exports = {
     async runInteraction(client, interaction) {
         let thread = interaction.channel;
 
-        if (!thread.type === 'GUILD_PUBLIC_THREAD' || !thread.type === 'GUILD_PRIVATE_THREAD') {
+        if (!thread.type == 'GUILD_PUBLIC_THREAD' || !thread.type == 'GUILD_PRIVATE_THREAD') {
             return interaction.reply({ content: '**❌ | Vous ne pouvez exécuter cette commande que dans un thread.**' });
         }
 

@@ -1,4 +1,3 @@
-const { MessageEmbed, MessageAttachment } = require("discord.js");
 const { getLeaderboard } = require("../../Utils/Level")
 
 module.exports = {

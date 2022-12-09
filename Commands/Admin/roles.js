@@ -87,18 +87,12 @@ const notifs = new MessageActionRow()
 
         new MessageButton()
             .setCustomId(Object.keys(roles)[12])
-            .setLabel('Status')
-            .setEmoji(emojis.status)
-            .setStyle('PRIMARY'),
-
-        new MessageButton()
-            .setCustomId(Object.keys(roles)[13])
             .setLabel('Dev')
             .setEmoji(emojis.dev)
             .setStyle('PRIMARY'),
 
         new MessageButton()
-            .setCustomId(Object.keys(roles)[14])
+            .setCustomId(Object.keys(roles)[13])
             .setLabel('Partenaires')
             .setEmoji(emojis.partner)
             .setStyle('PRIMARY'),

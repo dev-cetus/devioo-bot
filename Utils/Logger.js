@@ -31,10 +31,6 @@ function select(content) {
     write(content, 'black', 'bgGreen', 'SEL', false)
 }
 
-function badwords(content) {
-    write(content, 'black', 'bgGreen', 'BDW', false)
-}
-
 function client(content) {
     write(content, 'black', 'bgWhite', 'CLIENT', false)
 }
@@ -65,6 +61,5 @@ module.exports = {
     client,
     info,
     button,
-    select,
-    badwords
+    select
 };

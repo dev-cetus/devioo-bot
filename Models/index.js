@@ -1,4 +1,3 @@
 module.exports = {
-    User: require('./User'),
-    Badwords: require('./Badwords'),
+    User: require('./User')
 }
