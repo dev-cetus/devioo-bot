@@ -3,7 +3,7 @@
 ```
 git clone https://github.com/DEVIOONetwork/discord-bot.git
 ```
-or <a href="https://github.com/DEVIOONetwork/discord-bot/archive/refs/heads/master.zip">download</a> the zip file.
+or <a href="https://github.com/dev-cetus/devioo-bot/archive/refs/heads/main.zip">download</a> the zip file.
 ### ⚙️ Configuration
 Copy `config.example.json` to `config.json` and edit it.
 #### 🔗 Resources
