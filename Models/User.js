@@ -21,19 +21,6 @@ const userSchema = mongoose.Schema({
             date: Number
         }
     ],
-    autoReports: [
-        {
-            reason: String,
-            date: {
-                type: Number,
-                default: Date.now
-            }
-        }
-    ],
-    reportScore: {
-        type: Number,
-        default: 0
-    },
     warns: [
         {
             reason: String,

@@ -66,9 +66,6 @@ module.exports = {
         await User.updateOne({
             id: interaction.targetMessage.author.id
         }, {
-            $inc: {
-                reportScore: 1
-            },
             $push: {
                 msgReports: [ {
                     msgID: interaction.targetMessage.id,

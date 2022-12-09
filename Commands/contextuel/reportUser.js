@@ -1,6 +1,5 @@
 const { MessageEmbed } = require("discord.js");
 const modChannel = require('../../config.json').channels.moderation;
-const { User } = require('../../Models/index')
 const prodGuild = require('../../config.json').guilds.prodGuildID;
 
 module.exports = {
@@ -36,16 +35,5 @@ module.exports = {
             content: '**✅ | Votre signalement a bien été envoyé à l\'équipe de modération, nous vous remercions.**',
             ephemeral: true
         });
-
-        await User.updateOne({
-            id: interaction.targetMember.id
-        }, {
-            $inc: {
-                reportScore: 5
-            },
-            $push: {
-                reports: Date.now()
-            }
-        }, { upsert: true });
     }
 }
