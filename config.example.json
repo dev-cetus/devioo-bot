@@ -14,7 +14,7 @@
     "logsID": "LOGS_CHANNEL_ID",
     "memberCountID": "MEMBER_COUNT_CHANNEL_ID",
     "moderation": "MODERATION_LOGS_CHANNEL_ID",
-    "levels": "LEVELS_CHANNEL_ID",
+    "levels": "LEVELS_CHANNEL_ID"
   },
   "roles" : {
     "ccpp": "CCPP_ROLE_ID",
@@ -29,7 +29,6 @@
     "ts": "TS_ROLE_ID",
     "web": "WEB_ROLE_ID",
     "annonces": "ANNONCES_ROLE_ID",
-    "status": "STATUS_ROLE_ID",
     "dev": "DEV_NOTIFICATIONS_ROLE_ID",
     "partner": "PARTNER_NOTIFICATIONS_ROLE_ID",
     "member": "MEMBER_ROLE_ID",
@@ -48,7 +47,6 @@
     "ts": "<:typescript:994711829861376061>",
     "web": "<:html:993921408100995133>",
     "annonces": "\uD83D\uDCE2",
-    "status": "📊",
     "dev": "\uD83D\uDCBB",
     "partner": "✨"
   }

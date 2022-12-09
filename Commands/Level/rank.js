@@ -1,4 +1,5 @@
-const { MessageEmbed, MessageAttachment } = require("discord.js");
+
+const { MessageAttachment } = require("discord.js");
 const { getUserData } = require("../../Utils/Level")
 const canvacord = require("canvacord");
 

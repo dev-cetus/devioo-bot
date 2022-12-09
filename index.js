@@ -9,8 +9,8 @@ const Logger = require('./Utils/Logger');
 const config = require('./config.json');
 const mongoose = require('mongoose');
 
-[ 'commands', 'buttons', 'selects', 'badwords' ].forEach(x => client[x] = new Collection());
-[ 'CommandUtil', 'EventUtil', 'ButtonUtil', 'SelectUtil', 'BadwordsUtil' ].forEach(handler => {
+[ 'commands', 'buttons', 'selects'].forEach(x => client[x] = new Collection());
+[ 'CommandUtil', 'EventUtil', 'ButtonUtil', 'SelectUtil' ].forEach(handler => {
     require(`./Utils/Handlers/${handler}`)(client)
 });
 

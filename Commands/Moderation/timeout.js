@@ -1,4 +1,5 @@
-const { MessageEmbed, GuildMember } = require('discord.js');
+
+const { MessageEmbed } = require('discord.js');
 const ms = require('ms');
 
 module.exports = {

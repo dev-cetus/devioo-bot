@@ -5,7 +5,6 @@ const role = require('../../config.json').roles[roleName];
 module.exports = {
     name: roleName,
     async runInteraction(client, interaction) {
-        let roleName = interaction.guild.roles.cache.find(role => role.id === role);
 
         if (!interaction.member.roles.cache.has(role)) {
             interaction.member.roles.add(role);

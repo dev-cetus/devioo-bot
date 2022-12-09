@@ -19,11 +19,11 @@ module.exports = {
         })
     },
 
-    async getWarns(id) {
-        return await User.findOne({
-            id: id
-        }).then(user => {
-            return user.warns
-        })
-    }
+    // async getWarns(id) {
+    //     return await User.findOne({
+    //         id: id
+    //     }).then(user => {
+    //         return user.warns
+    //     })
+    // }
 }
