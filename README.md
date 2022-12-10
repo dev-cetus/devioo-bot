@@ -16,3 +16,6 @@ npm install
 
 npm run bot
 ```
+### ⭐ Support me
+Don't forget to ⭐ this repo if you liked it!
+
