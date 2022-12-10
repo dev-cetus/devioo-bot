@@ -48,7 +48,7 @@ class Level {
 
     async getLeaderboard() {
         return User.find().sort({
-            level: -1,
+            xp: -1,
         });
     }
 
