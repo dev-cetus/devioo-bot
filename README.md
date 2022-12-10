@@ -5,7 +5,7 @@ git clone https://github.com/DEVIOONetwork/discord-bot.git
 ```
 or <a href="https://github.com/dev-cetus/devioo-bot/archive/refs/heads/main.zip">download</a> the zip file.
 ### ⚙️ Configuration
-Copy `config.example.json` to `config.json` and edit it.
+Rename the file `config.example.json` to `config.json` and edit it.
 #### 🔗 Resources
 - [Get bot token](https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token)
 - [Set up a MongoDB database and get the connection URI](https://www.mongodb.com/basics/mongodb-atlas-tutorial)
@@ -16,4 +16,3 @@ npm install
 
 npm run bot
 ```
-![DEVIOO Banner](https://sharefiles.devioo.com/Images/Branding/DEVIOO_BANNER.png)
