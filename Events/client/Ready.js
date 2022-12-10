@@ -1,3 +1,5 @@
+const config = require('../../config.json');
+
 module.exports = {
     name: 'ready',
     once: true,
@@ -5,11 +7,11 @@ module.exports = {
         client.user.setPresence({
             activities: [
                 {
-                    name: `/help | Bot de modération`,
-                    type: 'WATCHING',
+                    name: config.richPresence.activity.name,
+                    type: config.richPresence.activity.type,
                 },
             ],
-            status: 'online'
+            status: config.richPresence.status,
         })
 
         // Instant update interaction
