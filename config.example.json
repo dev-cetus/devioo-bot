@@ -7,6 +7,13 @@
     "devGuildID": "DEV_GUILD_ID",
     "prodGuildID": "PROD_GUILD_ID"
   },
+  "richPresence": {
+    "status": "online",
+    "activity": {
+      "name": "/help",
+      "type": "PLAYING"
+    }
+  },
   "categories": {
     "tickets": "TICKETS_CATEGORY_ID"
   },
