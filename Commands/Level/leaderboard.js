@@ -15,7 +15,7 @@ module.exports = {
         });
 
         const embed = {
-            color: Math.floor(Math.random() * 16777215),
+            color: '#0099ff',
             title: `:trophy: Leaderboard :`,
             description: list.join('\n')
         };
