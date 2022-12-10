@@ -37,7 +37,7 @@ module.exports = {
         const attachment = new MessageAttachment(buff, "RankCard.png");
 
         const embed = {
-            color: Math.floor(Math.random() * 16777215),
+            color: '#0099ff',
             title: `Rang de ${user.tag} :`,
             image: {
                 url: 'attachment://RankCard.png',
