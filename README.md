@@ -1,7 +1,7 @@
 # DEVIOO Bot 🤖
 ### ⬇️ Clone repo
 ```
-git clone https://github.com/DEVIOONetwork/discord-bot.git
+git clone https://github.com/dev-cetus/devioo-bot.git
 ```
 or <a href="https://github.com/dev-cetus/devioo-bot/archive/refs/heads/main.zip">download</a> the zip file.
 ### ⚙️ Configuration
